@@ -1,5 +1,20 @@
 import React from 'react';
 
+const List = ({ personsData, setPersons }) => {
+
+  const personsList = createPersonsList(personsData);
+
+  return (
+    <div className='container'>
+      <h3>{personsList.length} birthdays today</h3>
+      <ul>
+        {personsList}
+      </ul>
+      <button onClick={() => setPersons([])}>Clear All</button>
+    </div>
+  );
+};
+
 function createPersonsList(personsData) {
   const personsList = personsData.map(({ id, name, age, image }) => {
     return (
@@ -15,21 +30,6 @@ function createPersonsList(personsData) {
 
   return personsList;
 
-}
-
-const List = ({ personsData, setPersons }) => {
-
-  const personsList = createPersonsList(personsData);
-
-  return (
-    <div className='container'>
-      <h3>{personsList.length} birthdays today</h3>
-      <ul>
-        {personsList}
-      </ul>
-      <button onClick={() => setPersons([])}>Clear All</button>
-    </div>
-  );
 };
 
 export default List;

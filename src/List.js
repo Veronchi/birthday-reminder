@@ -1,8 +1,7 @@
 import React from 'react';
 
-const List = ({ personsList, setPersons }) => {
-
-  const person = personsList.map(({ id, name, age, image }) => {
+function createPersonsList(personsData) {
+  const personsList = personsData.map(({ id, name, age, image }) => {
     return (
       <li key={id} className='person'>
         <img src={image} alt='person' />
@@ -12,13 +11,21 @@ const List = ({ personsList, setPersons }) => {
         </div>
       </li>
     );
-  })
+  });
+
+  return personsList;
+
+}
+
+const List = ({ personsData, setPersons }) => {
+
+  const personsList = createPersonsList(personsData);
 
   return (
     <div className='container'>
       <h3>{personsList.length} birthdays today</h3>
       <ul>
-        {person}
+        {personsList}
       </ul>
       <button onClick={() => setPersons([])}>Clear All</button>
     </div>

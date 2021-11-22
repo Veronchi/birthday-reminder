@@ -9,7 +9,7 @@ function App() {
 
   return (
     <main>
-      <List personsList={persons} setPersons={setPersons} />
+      <List personsData={persons} setPersons={setPersons} />
     </main>
   );
 

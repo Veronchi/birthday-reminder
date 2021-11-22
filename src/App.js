@@ -6,9 +6,10 @@ function App() {
 
   const [persons, setPersons] = useState(data);
 
+
   return (
     <main>
-      <List personsList={persons}/>
+      <List personsList={persons} setPersons={setPersons} />
     </main>
   );
 

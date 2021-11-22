@@ -1,7 +1,6 @@
 import React from 'react';
 
-const List = ({ personsList }) => {
-  console.log(personsList)
+const List = ({ personsList, setPersons }) => {
 
   const person = personsList.map(({ id, name, age, image }) => {
     return (
@@ -21,7 +20,7 @@ const List = ({ personsList }) => {
       <ul>
         {person}
       </ul>
-      <button>Clear All</button>
+      <button onClick={() => setPersons([])}>Clear All</button>
     </div>
   );
 };
